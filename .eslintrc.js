@@ -29,5 +29,6 @@ module.exports = {
     'no-useless-constructor': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'class-methods-use-this': 'off',
+    'import/extensions': 'off',
   },
 };
