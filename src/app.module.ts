@@ -3,9 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import databaseConfig from './config/database/configuration';
-import { DatabaseModule } from './database/database.module';
-import { DatabaseProviders } from './database/database.provider';
+import databaseConfig from './config/database/database.config';
+import { DatabaseModule } from './config/database/database.module';
+import { DatabaseProviders } from './config/database/database.provider';
 import { UsersModule } from './modules/users/users.module';
 
 @Module({
@@ -15,7 +15,6 @@ import { UsersModule } from './modules/users/users.module';
       useClass: DatabaseProviders,
       inject: [DatabaseProviders],
     }),
-    UsersModule,
     ConfigModule.forRoot({
       load: [databaseConfig],
       isGlobal: true,
@@ -23,6 +22,7 @@ import { UsersModule } from './modules/users/users.module';
       envFilePath:
         process.env.NODE_ENV === 'dev' ? '.env.development' : '.env.production',
     }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
