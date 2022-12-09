@@ -1,6 +1,6 @@
 /** comm */
-export { default as Configuration } from './configuration';
+export { default as CONSTANT } from './constant';
 
 /** constant */
 export { default as DB } from './db.constant';
-export { default as Swagger } from './swagger.constant';
+export { default as SWAGGER } from './swagger.constant';
