@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import setupSwagger from './config/swagger.config';
+import setupSwagger from './common/swagger/swagger.service';
 import { Configuration } from './constants';
 
 async function bootstrap() {
@@ -12,4 +12,5 @@ async function bootstrap() {
 
   await app.listen(Configuration.PORT);
 }
+
 bootstrap();
